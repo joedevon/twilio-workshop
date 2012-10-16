@@ -12,11 +12,21 @@ $app->map('/twiml', function () use ($app) {
     echo "
 <Response>
 <Say>You are being enqueued now.</Say>
-<Enqueue>radio-callin-queue</Enqueue>
+<Enqueue waitUrl='/wait' waitMethod='GET'>radio-callin-queue</Enqueue>
 </Response>
 
 		";
 })->via('GET', 'POST');
+
+$app->get('/wait', function () use ($app) {
+	$res = $app->response()->header('Content-Type', 'application/xml');
+    echo "
+<Response>
+<Say>HELLO WORLD.</Say>
+</Response>
+
+		";
+});
 
 
 $app->run();
