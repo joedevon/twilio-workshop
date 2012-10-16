@@ -25,9 +25,22 @@ $app->get('/wait', function () use ($app) {
 	<Say>Please Hold.</Say>
 	<Play>http://com.twilio.sounds.music.s3.amazonaws.com/MARKOVICHAMP-Borghestral.mp3</Play>
 </Response>
+<Redirect/>
 
 		";
 });
 
+$app->get('/dequeue', function () use ($app) {
+	$res = $app->response()->header('Content-Type', 'application/xml');
+    echo "
+
+<Response>
+    <Dial>
+        <Queue>radio-callin-queue</Queue>
+    </Dial>
+</Response>
+
+		";
+});
 
 $app->run();
