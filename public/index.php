@@ -10,10 +10,11 @@ $app->get('/', function () {
 $app->map('/twiml', function () use ($app) {
 	$res = $app->response()->header('Content-Type', 'application/xml');
     echo "
-<response>
-<say>You are being enqueued now.</say>
-<enqueue>radio-callin-queue</enqueue>
-</response>
+<Response>
+<Say>You are being enqueued now.</Say>
+<Enqueue>radio-callin-queue</Enqueue>
+</Response>
+
 		";
 })->via('GET', 'POST');
 
