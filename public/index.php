@@ -7,7 +7,7 @@ $app->get('/', function () {
     echo "hi!";
 });
 
-$app->map('/twiml', function () use ($app) {
+$app->map('/enqueue', function () use ($app) {
 	$res = $app->response()->header('Content-Type', 'application/xml');
     echo "
 <Response>
