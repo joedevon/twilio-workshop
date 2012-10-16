@@ -12,7 +12,7 @@ $app->map('/twiml', function () use ($app) {
     echo "
 <Response>
 <Say>You are being enqueued now.</Say>
-<Enqueue waitUrl='http://app-362-1350414117.orchestra.io/wait' waitMethod='GET'>radio-callin-queue</Enqueue>
+<Enqueue waitUrl='http://app-362-1350414117.orchestra.io/wait' waitUrlMethod='GET'>radio-callin-queue</Enqueue>
 </Response>
 
 		";
