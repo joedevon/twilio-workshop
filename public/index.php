@@ -24,10 +24,9 @@ $app->get('/wait', function () use ($app) {
 <Response>
 	<Say>Please Hold.</Say>
 	<Play>http://com.twilio.sounds.music.s3.amazonaws.com/MARKOVICHAMP-Borghestral.mp3</Play>
+	<Redirect/>
 </Response>
-<Redirect/>
-
-		";
+";
 });
 
 $app->get('/dequeue', function () use ($app) {
