@@ -12,13 +12,13 @@ $app->map('/enqueue', function () use ($app) {
     echo "
 <Response>
 <Say>You are being enqueued now.</Say>
-<Enqueue waitUrl='http://app-362-1350414117.orchestra.io/wait' waitUrlMethod='GET'>radio-callin-queue</Enqueue>
+<Enqueue waitUrl='http://app-362-1350414117.orchestra.io/wait' waitUrlMethod='POST'>radio-callin-queue</Enqueue>
 </Response>
 
 		";
 })->via('GET', 'POST');
 
-$app->get('/wait', function () use ($app) {
+$app->map('/wait', function () use ($app) {
 	$res = $app->response()->header('Content-Type', 'application/xml');
     echo "
 <Response>
@@ -27,9 +27,9 @@ $app->get('/wait', function () use ($app) {
 	<Redirect/>
 </Response>
 ";
-});
+})->via('GET', 'POST');
 
-$app->get('/dequeue', function () use ($app) {
+$app->map('/dequeue', function () use ($app) {
 	$res = $app->response()->header('Content-Type', 'application/xml');
     echo "
 
@@ -40,6 +40,6 @@ $app->get('/dequeue', function () use ($app) {
 </Response>
 
 		";
-});
+})->via('GET', 'POST');
 
 $app->run();
