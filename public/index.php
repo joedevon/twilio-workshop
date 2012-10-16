@@ -22,7 +22,8 @@ $app->get('/wait', function () use ($app) {
 	$res = $app->response()->header('Content-Type', 'application/xml');
     echo "
 <Response>
-<Say>HELLO WORLD.</Say>
+	<Say>Please Hold.</Say>
+	<Play>http://com.twilio.sounds.music.s3.amazonaws.com/MARKOVICHAMP-Borghestra1.mp3</Play>
 </Response>
 
 		";
